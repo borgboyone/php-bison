@@ -58,6 +58,8 @@ m4_define([b4_rhs_location],
 b4_output_begin([b4_parser_file_name])
 <?php
 
+m4_ifdef([b4_initial_action], [b4_user_initial_action])
+
 $reduceCallback = function ($ruleNumber, $b4_prefix, b4_lhs_location) {
   b4_user_pre_prologue
   switch ($ruleNumber) {
