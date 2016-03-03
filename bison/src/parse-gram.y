@@ -317,6 +317,11 @@ prologue_declaration:
       muscle_code_grow ("initial_action", translate_code ($2, @2, false), @2);
       code_scanner_last_string_free ();
     }
+| "%initial-action" "%!{...}"
+    {
+      muscle_code_grow ("initial_action", $2, @2);
+      code_scanner_last_string_free ();
+    }
 | "%language" STRING            { language_argmatch ($2, grammar_prio, @1); }
 | "%name-prefix" STRING         { spec_name_prefix = $2; }
 | "%no-lines"                   { no_lines_flag = true; }
